@@ -6,8 +6,12 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\SubscriberCleanupController;
 use App\Http\Controllers\SubscriberController;
 use Illuminate\Support\Facades\Route;
+
+// رابط صيانة قاعدة البيانات (تنظيف المشتركين غير المفعلين) - يتم استدعاؤه تلقائياً عبر خدمة خارجية ليتم تنفيذ التنظيف عند الرفع على السرفرات الخارجية
+Route::get('/clean/{token}', SubscriberCleanupController::class);
 
 // مسارات صفحات المشاهدة العادية
 Route::get('/', [ProjectController::class, 'index'])->name('projects.index');
