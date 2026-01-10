@@ -1,0 +1,217 @@
+/* -----------------------------------------------------------
+   1. المتغيرات الأساسية (Brand Identity)
+----------------------------------------------------------- */
+:root {
+    --brand-color: #2ebbd3 !important;
+    --brand-color-hover: #1a8a9d !important;
+    --brand-light: #f0fbfc !important;
+    --brand-text-gray: #4a5568 !important;
+}
+
+/* -----------------------------------------------------------
+   2. الخطوط حسب اللغة
+----------------------------------------------------------- */
+html[lang="ar"] body {
+    font-family: "Cairo", sans-serif;
+}
+
+html[lang="en"] body {
+    font-family: "Figtree", sans-serif;
+}
+
+/* -----------------------------------------------------------
+   3. أصناف الألوان الجديدة (Utility Classes)
+----------------------------------------------------------- */
+.text-brand {
+    color: var(--brand-color) !important;
+}
+
+.bg-brand {
+    background-color: var(--brand-color) !important;
+    color: white !important;
+}
+
+.btn-brand {
+    background-color: var(--brand-color) !important;
+    border-color: var(--brand-color) !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-brand:hover {
+    background-color: var(--brand-color-hover) !important;
+    border-color: var(--brand-color-hover) !important;
+    color: white !important;
+}
+
+.btn-outline-brand {
+    color: var(--brand-color) !important;
+    border-color: var(--brand-color) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-outline-brand:hover {
+    background-color: var(--brand-color) !important;
+    border-color: var(--brand-color) !important;
+    color: #fff !important;
+}
+
+/* -----------------------------------------------------------
+   4. الترقيم (Pagination Custom Style)
+----------------------------------------------------------- */
+.pagination-wrapper {
+    background: #f8f9fa !important;
+    padding: 15px 25px;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
+    display: flex;
+    align-items: center !important;
+    justify-content: space-between;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--brand-color) !important;
+    border-color: var(--brand-color) !important;
+    color: white !important;
+}
+
+.pagination .page-link {
+    color: var(--brand-color) !important;
+    border: 1px solid #dee2e6;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--brand-light) !important;
+    color: var(--brand-color-hover) !important;
+}
+
+.pagination-info {
+    font-size: 0.9rem;
+    color: var(--brand-text-gray) !important;
+}
+
+.pagination-info .fw-semibold {
+    color: var(--brand-color) !important;
+    margin: 0 4px;
+}
+
+/* تعديلات المسافات للترقيم */
+nav > div > div:nth-child(1) > p {
+    margin-bottom: 0 !important;
+}
+
+html[lang="ar"] .pagination {
+    margin-right: 20px !important;
+    padding-right: 0;
+}
+
+html[lang="en"] .pagination {
+    margin-left: 20px !important;
+    padding-left: 0;
+}
+
+/* -----------------------------------------------------------
+   5. حقول الاشتراك (RTL / LTR Logic)
+----------------------------------------------------------- */
+[dir="ltr"] .custom-subscribe-input {
+    border-top-left-radius: 5px !important; 
+    border-bottom-left-radius: 5px !important;
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important;
+}
+[dir="ltr"] .custom-subscribe-btn {
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 5px !important; 
+    border-bottom-right-radius: 5px !important;
+}
+[dir="rtl"] .custom-subscribe-input {
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 5px !important; 
+    border-bottom-right-radius: 5px !important;
+}
+[dir="rtl"] .custom-subscribe-btn {
+    border-top-left-radius: 5px !important; 
+    border-bottom-left-radius: 5px !important;
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important;
+}
+
+/* -----------------------------------------------------------
+   6. التأثيرات الحركية (Animations)
+----------------------------------------------------------- */
+.auto-fade-out {
+    animation: fadeOut ease 10s forwards;
+    -webkit-animation: fadeOut ease 10s forwards;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1; visibility: visible;}
+    90% {opacity: 1; visibility: visible;}
+    100% {opacity: 0; visibility: hidden; display: none;}
+}
+
+@-webkit-keyframes fadeOut {
+    0% {opacity: 1; visibility: visible;}
+    90% {opacity: 1; visibility: visible;}
+    100% {opacity: 0; visibility: hidden; display: none;}
+}
+/* تنسيق أيقونة الحرف الدائرية  */
+.user-avatar-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #64748b !important; 
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.user-avatar-circle:hover {
+    transform: scale(1.1);
+    background-color: #475569 !important; /* درجة أغمق للهوفر */
+}
+
+/* إخفاء سهم الـ Dropdown */
+.hide-arrow::after {
+    display: none !important;
+}
+
+/* تحسين شكل القائمة المنسدلة */
+.dropdown-menu {
+    border-radius: 10px;
+    min-width: 180px;
+    border: 1px solid #edf2f7;
+}
+
+.dropdown-item {
+    transition: background 0.2s;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+/* ضبط المسافات بين الأيقونة والنص بناءً على اللغة لمنع الالتصاق */
+html[lang="ar"] .dropdown-item i,
+html[lang="ar"] .list-group-item i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+html[lang="en"] .dropdown-item i,
+html[lang="en"] .list-group-item i {
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.dropdown-item:hover {
+    background-color: var(--brand-light) !important;
+    color: var(--brand-color-hover) !important;
+}

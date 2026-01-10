@@ -1,0 +1,47 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Admin Dashboard') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-6">
+        <div class="max-w-full mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg border border-gray-100">
+                <div class="p-8 text-gray-900">
+                    <h3 class="text-2xl font-bold text-brand mb-4">
+                        {{ __('Welcome back,') }} {{ Auth::user()->name }}!
+                    </h3>
+                    <p class="text-gray-600">
+                        {{ __('From here you can manage your subscribers, projects, and site settings.') }}
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+                        <a href="{{ route('admin.subscribers.index') }}"
+                            class="p-4 border border-gray-100 rounded-xl hover:bg-brand-light transition group">
+                            <span
+                                class="block font-bold text-gray-800 group-hover:text-brand">{{ __('Subscribers') }}</span>
+                            <span class="text-sm text-gray-500">{{ __('View and manage your mailing list.') }}</span>
+                        </a>
+
+                        <a href="{{ route('admin.projects.index') }}"
+                            class="p-4 border border-gray-100 rounded-xl hover:bg-brand-light transition group">
+                            <span
+                                class="block font-bold text-gray-800 group-hover:text-brand">{{ __('Projects') }}</span>
+                            <span class="text-sm text-gray-500">{{ __('Add or edit company projects.') }}</span>
+                        </a>
+
+                        <a href="{{ route('admin.newsletters.index') }}"
+                            class="p-4 border border-gray-100 rounded-xl hover:bg-brand-light transition group">
+                            <span
+                                class="block font-bold text-gray-800 group-hover:text-brand">{{ __('Newsletters') }}</span>
+                            <span
+                                class="text-sm text-gray-500">{{ __('View history and send new newsletters to your subscribers.') }}</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</x-app-layout>
