@@ -23,12 +23,13 @@
                             </span>
                         </span>
                     </div>
-                    <p class="text-sm text-gray-500 mt-1">{{ __('Manage your mailing list and subscriptions.') }}</p>
+                    <p class="text-sm text-gray-500 mt-1">{{ __('Manage your mailing list and send new newsletters.') }}
+                    </p>
                 </div>
             </div>
 
             <div class="flex gap-3">
-                <a href="#"
+                <a href="{{ route('admin.newsletters.create') }}"
                     class="inline-flex items-center px-5 py-2.5 bg-slate-800 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-all shadow-sm">
                     <i
                         class="fa-solid fa-paper-plane text-cyan-400 {{ app()->getLocale() === 'ar' ? 'ml-2' : 'mr-2' }}"></i>
@@ -120,7 +121,7 @@
                                         </button>
                                     </form>
                                 </td>
-                                
+
                             </tr>
                         @empty
                             <tr>
