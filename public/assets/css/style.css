@@ -114,27 +114,27 @@ html[lang="en"] .pagination {
    5. حقول الاشتراك (RTL / LTR Logic)
 ----------------------------------------------------------- */
 [dir="ltr"] .custom-subscribe-input {
-    border-top-left-radius: 5px !important; 
+    border-top-left-radius: 5px !important;
     border-bottom-left-radius: 5px !important;
-    border-top-right-radius: 0 !important; 
+    border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 }
 [dir="ltr"] .custom-subscribe-btn {
-    border-top-left-radius: 0 !important; 
+    border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-    border-top-right-radius: 5px !important; 
+    border-top-right-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
 }
 [dir="rtl"] .custom-subscribe-input {
-    border-top-left-radius: 0 !important; 
+    border-top-left-radius: 0 !important;
     border-bottom-left-radius: 0 !important;
-    border-top-right-radius: 5px !important; 
+    border-top-right-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
 }
 [dir="rtl"] .custom-subscribe-btn {
-    border-top-left-radius: 5px !important; 
+    border-top-left-radius: 5px !important;
     border-bottom-left-radius: 5px !important;
-    border-top-right-radius: 0 !important; 
+    border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 }
 
@@ -147,21 +147,41 @@ html[lang="en"] .pagination {
 }
 
 @keyframes fadeOut {
-    0% {opacity: 1; visibility: visible;}
-    90% {opacity: 1; visibility: visible;}
-    100% {opacity: 0; visibility: hidden; display: none;}
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
 }
 
 @-webkit-keyframes fadeOut {
-    0% {opacity: 1; visibility: visible;}
-    90% {opacity: 1; visibility: visible;}
-    100% {opacity: 0; visibility: hidden; display: none;}
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    90% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
 }
 /* تنسيق أيقونة الحرف الدائرية  */
 .user-avatar-circle {
     width: 40px;
     height: 40px;
-    background-color: #64748b !important; 
+    background-color: #64748b !important;
     color: white !important;
     display: flex;
     align-items: center;
@@ -215,3 +235,25 @@ html[lang="en"] .list-group-item i {
     background-color: var(--brand-light) !important;
     color: var(--brand-color-hover) !important;
 }
+/* 1. تصفير الحواف لجميع الأزرار في البداية */
+.pagination .page-item .page-link {
+    border-radius: 0 !important;
+}
+
+
+    /* للغة العربية: حواف دائرية للزر الأول من اليمين والأخير من اليسار */
+    [dir="rtl"] .page-item:first-child .page-link {
+        border-radius: 0 0.5rem 0.5rem 0 !important;
+    }
+    [dir="rtl"] .page-item:last-child .page-link {
+        border-radius: 0.5rem 0 0 0.5rem !important;
+    }
+
+    /* للغة الإنجليزية: حواف دائرية للزر الأول من اليسار والأخير من اليمين */
+    [dir="ltr"] .page-item:first-child .page-link {
+        border-radius: 0.5rem 0 0 0.5rem !important;
+    }
+    [dir="ltr"] .page-item:last-child .page-link {
+        border-radius: 0 0.5rem 0.5rem 0 !important;
+    }
+

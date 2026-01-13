@@ -47,7 +47,18 @@
             @endforeach
         </div>
     </div>
-    <div class="d-flex justify-content-center mt-4">
-        {{ $projects->links() }}
+
+    <div class="container pb-5">
+        <div class="mt-4">
+            {{-- Mobile View --}}
+            <div class="d-md-none w-100 mobile-pagination d-flex justify-content-center">
+                {{ $projects->links('pagination::simple-bootstrap-5') }}
+            </div>
+
+            {{-- Desktop View --}}
+            <div class="d-none d-md-block d-flex justify-content-center">
+                {{ $projects->onEachSide(1)->links() }}
+            </div>
+        </div>
     </div>
 @endsection

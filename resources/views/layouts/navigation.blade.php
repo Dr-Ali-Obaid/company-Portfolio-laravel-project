@@ -18,7 +18,8 @@
                 </div>
             </div>
 
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <div class="hidden sm:flex sm:items-center sm:ms-6 space-x-4">
+                {{-- Language Switcher --}}
                 <a href="{{ route('lang.switch', app()->getLocale() === 'ar' ? 'en' : 'ar') }}"
                     class="inline-flex items-center px-3 py-2 text-sm font-bold text-gray-500 hover:text-slate-800 transition duration-150">
                     @if (app()->getLocale() === 'ar')
@@ -29,8 +30,8 @@
                         <span class="ms-2">العربية</span>
                     @endif
                 </a>
-            </div>
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+
+                {{-- User Dropdown --}}
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex items-center focus:outline-none">
@@ -72,6 +73,32 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
+            {{-- --- Start Management Links for Mobile --- --}}
+            <div class="border-t border-gray-200 my-2"></div>
+            <div class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                {{ __('Management') }}
+            </div>
+
+            <x-responsive-nav-link :href="route('admin.subscribers.index')" :active="request()->routeIs('admin.subscribers.*')">
+                <i class="fa-solid fa-users me-2 text-gray-400"></i> {{ __('Subscribers') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.newsletters.index')" :active="request()->routeIs('admin.newsletters.*')">
+                <i class="fa-solid fa-envelope-open-text me-2 text-gray-400"></i> {{ __('Newsletters') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.projects.index')" :active="request()->routeIs('admin.projects.index')">
+                <i class="fa-solid fa-briefcase me-2 text-gray-400"></i> {{ __('Projects') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('admin.projects.create')" :active="request()->routeIs('admin.projects.create')">
+                <i class="fa-solid fa-plus-circle me-2 text-gray-400"></i> {{ __('Add New Project') }}
+            </x-responsive-nav-link>
+            {{-- --- End Management Links --- --}}
+
+            <div class="border-t border-gray-200 my-2"></div>
+
+            {{-- Language Switcher Mobile --}}
             <x-responsive-nav-link :href="route('lang.switch', app()->getLocale() === 'ar' ? 'en' : 'ar')">
                 <div class="flex items-center">
                     @if (app()->getLocale() === 'ar')
@@ -87,7 +114,6 @@
 
         <div class="pt-4 pb-1 border-t border-gray-200 bg-white">
             <div class="flex items-center px-4">
-                {{-- Mobile Avatar --}}
                 <div class="flex-shrink-0">
                     <div
                         class="flex items-center justify-center w-10 h-10 rounded-full bg-slate-500 text-white font-bold">
