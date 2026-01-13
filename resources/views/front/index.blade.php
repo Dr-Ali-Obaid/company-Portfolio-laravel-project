@@ -56,7 +56,7 @@
             </div>
 
             {{-- Desktop View --}}
-            <div class="d-none d-md-block d-flex justify-content-center">
+            <div class="d-none d-md-flex justify-content-center">
                 {{ $projects->onEachSide(1)->links() }}
             </div>
         </div>
