@@ -15,12 +15,25 @@ use Illuminate\Support\Facades\Mail;
 
 class SendNewsletterJob implements ShouldQueue
 {
-    use Queueable, SerializesModels, InteractsWithQueue,Dispatchable;
+    use Queueable, SerializesModels, InteractsWithQueue, Dispatchable;
+
+    /**
+     * The number of seconds the job can run before timing out.
+     *
+     * @var int
+     */
+    public $timeout = 300;
+
+    /**
+     * The newsletter model instance.
+     *
+     * @var \App\Models\Newsletter
+     */
+    public $newsletter;
 
     /**
      * Create a new job instance.
      */
-    public $newsletter;
     public function __construct(NewsletterModel $newsletter)
     {
         $this->newsletter = $newsletter;
@@ -34,12 +47,16 @@ class SendNewsletterJob implements ShouldQueue
         Subscriber::chunk(25, function ($subscribers) {
             foreach ($subscribers as $subscriber) {
                 $this->newsletter->token = $subscriber->token;
-                Mail::to($subscriber->email)->send(new Newsletter($this->newsletter ));
+                Mail::to($subscriber->email)->send(new Newsletter($this->newsletter));
                 usleep(100000);
             }
             sleep(1);
         });
-        NewsletterModel::where('id', $this->newsletter->id)->update(['sent_at' => now()]);
+
+        // Update the sent timestamp directly on the loaded model instance
+        $this->newsletter->update(['sent_at' => now()]);
+
+        // Broadcast the real-time status update event
         event(new NewsletterStatusUpdated($this->newsletter));
     }
 }
